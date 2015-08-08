@@ -3,12 +3,40 @@
 <head>
 	<title>Sample Project</title>
 	<meta name="name" content="content" >
-	<link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="lib/bootstrap.min.css"/>
+  <link rel="stylesheet"  href="lib/bootstrap-theme.css"/>
+	
 	<script src="lib/jquery-2.1.4.min.js"></script>
 	<script src="lib/angular.min.js" ></script>
+  <script src="lib/bootstrap.min.js" ></script>
+  <link rel="stylesheet" href="app.css">
+  <style type="text/css" media="screen">
+   .todoComplete{
+      background-color: red;
+       }  
+  </style>
 </head>
 <body>
-{{name}}
+<div class="container">
+  <div class="row" ng-controller="TodoCtrl">
+    <form>
+      <div class="form-group">
+        <label>Todo:</label>
+        <input class="form-control" ng-model="todoTxt"/>
+        <button class="btn btn-primary" ng-click="addTodo()"> Add </button>
+      </div>
+    </form>
+
+    <ul class="list-group">
+      <li ng-repeat="list in todoList" >
+      <div> <input type="checkbox" ng-model="list.isChecked"/>
+      <span ng-class="{todoComplete: list.isChecked}">{{list.todoTxt}}</span>
+      <span class="glyphicon glyphicon-remove" ng-click="removeTodo($index)"></span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- {{name}}
 <div ng-controller="MyCtrl">
 <input ng-model="name"/>
 <input type="number" ng-model="num"/>
@@ -33,7 +61,8 @@
   </div>
  <ul>
  	<li ng-repeat="num in studentData">  {{num + 10 }}</li>
- </ul>
- <script src="app.js"></script>
+ </ul> -->
+   <script src="app.js"></script>
+ <script src="AngularToDo/todo.js"></script>
 </body>
 </html>
