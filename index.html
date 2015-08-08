@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+<head>
+	<title>Sample Project</title>
+	<meta name="name" content="content" >
+	<link rel="stylesheet" href="app.css">
+	<script src="lib/jquery-2.1.4.min.js"></script>
+	<script src="lib/angular.min.js" ></script>
+</head>
+<body>
+{{name}}
+<div ng-controller="MyCtrl">
+<input ng-model="name"/>
+<input type="number" ng-model="num"/>
+<input ng-model="firstname" ng-change="fullnameFunc()"/>
+<input ng-model="lastname" ng-change="fullnameFunc()"/>
+
+<select ng-model="dropValue" ng-change="updateFullName()">
+  <option value="1">First</option>
+  <option value="2">Second</option>
+  <option value="3">Third</option>
+  <option value="4">Forth</option>
+
+</select>
+  <h3>My Name is: {{fullname}}</h3>
+  <h2>{{name}}</h2>
+   
+  </div>
+  <div ng-controller="SecondCtrl">
+  	<h3>Second</h3>
+  	{{second}} <br>
+  	{{name}}
+  </div>
+ <ul>
+ 	<li ng-repeat="num in studentData">  {{num + 10 }}</li>
+ </ul>
+ <script src="app.js"></script>
+</body>
+</html>
