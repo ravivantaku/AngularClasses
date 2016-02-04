@@ -1,0 +1,28 @@
+<h3 class="center-text">Products List</h3>
+<a ui-sref="admin/new" class="btn btn-primary">Create Product</a>
+<div class="container">
+    <div class="row">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.description}}</td>
+                    <td>
+                        <a href="#/admin/edit/{{product.id}}" class="btn btn-primary">Edit</a>
+                        <button class="btn btn-danger" ng-click="deleteProduct($index, product.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
